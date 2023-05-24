@@ -9,8 +9,8 @@ services:
       - 27017:27017
     volumes:
       - database:/data/db
-    environment:
-      MONGO_INITDB_DATABASE: database
+    # environment:
+    #   MONGO_INITDB_DATABASE: database
     networks:
       - backend
     healthcheck:
@@ -40,8 +40,6 @@ services:
     container_name: nginx
     ports:
       - 80:80
-    volumes:
-      - ./web/static:/etc/static:ro
     networks:
       - frontend
     depends_on:
